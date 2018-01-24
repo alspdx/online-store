@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Album } from './album.model';
-import { ALBUMS } from './mock-albums';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Injectable()
 export class AlbumService {
+  albums: FirebaseListObservable<any[]>;
 
-  constructor() { }
+  constructor(private database: AngularFireDatabase) {
+    this.albums = database.list('albums');
+  }
 
   getAlbums() {
-    return ALBUMS;
+    return this.albums;
+  }
+
+  addAlbum(newAlbum: Album) {
+    this.albums.push(newAlbum);
   }
 
   getAlbumById(albumId: number) {
-    for (let album of ALBUMS) {
-      if (album.id === albumId) {
-        return album;
-      }
-    }
+    // for (let album of ALBUMS) {
+    //   if (album.id === albumId) {
+    //     return album;
+    //   }
+    // }
   }
 }
