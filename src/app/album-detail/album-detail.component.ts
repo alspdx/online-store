@@ -27,5 +27,4 @@ export class AlbumDetailComponent implements OnInit {
     });
     this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
   }
-
 }
