@@ -10,6 +10,7 @@ import { AlbumService } from '../album.service';
   styleUrls: ['./album-detail.component.css'],
   providers: [AlbumService]
 })
+
 export class AlbumDetailComponent implements OnInit {
   albumId: number;
   albumToDisplay: Album;
@@ -25,7 +26,5 @@ export class AlbumDetailComponent implements OnInit {
       this.albumId = parseInt(urlParameters['id']);
     });
     this.albumToDisplay = this.albumService.getAlbumById(this.albumId);
-    // console.log(this.albumService.getAlbumById(this.albumId));
   }
-
 }

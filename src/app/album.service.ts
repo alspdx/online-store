@@ -12,9 +12,8 @@ export class AlbumService {
   }
 
   getAlbumById(albumId: number) {
-    for(let album of ALBUMS) {
+    for (let album of ALBUMS) {
       if (album.id === albumId) {
-        console.log(album);
         return album;
       }
     }

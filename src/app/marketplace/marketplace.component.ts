@@ -15,7 +15,7 @@ export class MarketplaceComponent implements OnInit {
 
   constructor(private router: Router, private albumService: AlbumService) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.albums = this.albumService.getAlbums();
   }
 
