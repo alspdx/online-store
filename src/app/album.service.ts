@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 import { Album } from './album.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
+
 @Injectable()
 export class AlbumService {
+
   albums: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
@@ -18,11 +23,8 @@ export class AlbumService {
     this.albums.push(newAlbum);
   }
 
-  getAlbumById(albumId: number) {
-    // for (let album of ALBUMS) {
-    //   if (album.id === albumId) {
-    //     return album;
-    //   }
-    // }
+
+  getAlbumById(albumId: string) {
+    return this.database.object(`albums/${albumId}`);
   }
 }
