@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 import { AlbumService } from '../album.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-marketplace',
@@ -21,6 +22,7 @@ export class MarketplaceComponent implements OnInit {
 
   ngOnInit() {
     this.albums = this.albumService.getAlbums();
+    console.log(this.albums);
   }
 
   goToDetailPage(clickedAlbum) {

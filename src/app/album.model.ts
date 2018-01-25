@@ -4,4 +4,5 @@ export class Album {
     public artist: string,
     public description: string
   ){ }
+
 }

@@ -4,12 +4,14 @@ import { Album } from '../album.model';
 
 import { AlbumService } from '../album.service';
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css'],
   providers: [AlbumService]
 })
+
 export class AdminComponent implements OnInit {
 
   constructor(private albumService: AlbumService) { }
@@ -21,5 +23,4 @@ export class AdminComponent implements OnInit {
     const newAlbum: Album = new Album(title, artist, description);
     this.albumService.addAlbum(newAlbum);
   }
-
 }
